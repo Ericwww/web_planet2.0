@@ -1,7 +1,11 @@
 <template>
 	<div class="w-magicbox">
 		<div class="w-mb-img">
-			
+			<mt-swipe :auto="3000">
+        <mt-swipe-item>
+          <img>
+        </mt-swipe-item>
+      </mt-swipe>
 		</div>
 		<div class="w-mb-cost">
 			<div class="w-mb-deposit">
@@ -72,6 +76,8 @@
 
 <script>
 import sku from '../components/sku';
+import { Swipe, SwipeItem } from 'mint-ui';
+import axios from 'axios';
 export default {
 	data(){
 		return{
@@ -79,7 +85,7 @@ export default {
 		}
 
 	},
-	components:{sku},
+	components:{sku,Swipe,SwipeItem},
 	methods:{
 		changeModal(v,bool) {
       this[v] = bool;
@@ -88,7 +94,8 @@ export default {
   		}else{
         scroll.beforeClose();
       }
-    },
+		},
+		
 
 	},
 	created(){
